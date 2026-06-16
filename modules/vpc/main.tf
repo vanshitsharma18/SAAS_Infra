@@ -20,3 +20,9 @@ resource "google_compute_subnetwork" "subnet" {
     ip_cidr_range = "10.30.0.0/20"
   }
 }
+
+resource "google_compute_router" "router" {
+  name    = "${var.vpc_name}-router"
+  region  = var.region
+  network = google_compute_network.vpc.id
+}
