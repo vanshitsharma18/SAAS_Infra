@@ -1,0 +1,61 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Terraform Plans
+*.tfplan
+plan.out
+
+# Variable Files
+*.auto.tfvars
+terraform.tfvars.local
+
+# Sensitive Files
+*.pem
+*.key
+*.p12
+*.json
+
+# GCP Credentials
+credentials.json
+service-account.json
+
+# Environment Variables
+.env
+.env.*
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# IDE
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary Files
+tmp/
+temp/
+
+# Python (for utility scripts)
+__pycache__/
+*.pyc
+
+# NodeJS (if later used for scripts)
+node_modules/
+
+# Terraform Override Files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
