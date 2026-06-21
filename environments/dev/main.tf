@@ -31,7 +31,22 @@ module "secret_manager" {
 module "iam" {
   source = "../../modules/iam"
 
-  project_id          = var.project_id
-  service_account_id  = "global-saas-dev-sa"
+  project_id           = var.project_id
+  service_account_id   = "global-saas-dev-sa"
   service_account_name = "Global SaaS Dev Service Account"
+}
+
+module "gke" {
+  source = "../../modules/gke"
+
+  project_id = var.project_id
+  region     = var.region
+
+  cluster_name = "global-saas-dev-gke"
+
+  network_name = module.vpc.network_name
+  subnet_name  = module.vpc.subnet_name
+
+  pod_range_name     = "gke-pods"
+  service_range_name = "gke-services"
 }
