@@ -20,3 +20,18 @@ module "artifact_registry" {
   region          = var.region
   repository_name = "global-saas-dev-repo"
 }
+
+module "secret_manager" {
+  source = "../../modules/secret-manager"
+
+  project_id = var.project_id
+  secret_id  = "global-saas-dev-app-secret"
+}
+
+module "iam" {
+  source = "../../modules/iam"
+
+  project_id          = var.project_id
+  service_account_id  = "global-saas-dev-sa"
+  service_account_name = "Global SaaS Dev Service Account"
+}
